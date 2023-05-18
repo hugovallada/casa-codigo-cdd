@@ -11,7 +11,6 @@ import jakarta.ws.rs.POST
 import jakarta.ws.rs.Path
 import org.jboss.resteasy.reactive.ResponseStatus
 import org.jboss.resteasy.reactive.RestResponse.StatusCode
-import java.time.LocalDateTime
 
 @Path("/authors")
 class CreateAuthorResource : CreateAuthorAPI {
@@ -19,12 +18,11 @@ class CreateAuthorResource : CreateAuthorAPI {
     @POST
     @ResponseStatus(StatusCode.CREATED)
     override fun execute(@Valid authorRequest: AuthorRequest): AuthorResponse {
-        val auth = AuthorDomain(
+        val author = AuthorDomain(
             name = authorRequest.name,
             email = Email(authorRequest.email),
-            description = Description(authorRequest.description),
-            registryTime = LocalDateTime.now()
+            description = Description(authorRequest.description)
         )
-        return AuthorResponse(auth.name, auth.email.value, auth.description.value, auth.registryTime.toString())
+        return AuthorResponse.of(author)
     }
 }
