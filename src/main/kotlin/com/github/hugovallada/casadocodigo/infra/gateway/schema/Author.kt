@@ -23,8 +23,10 @@ class Author(
 ) {
     companion object {
         fun of(author: AuthorDomain) = Author(
-            internalId = UUID.randomUUID().toString(), name = author.name,
-            email = author.email.value, description = author.description.value
+            internalId = UUID.randomUUID().toString(),
+            name = author.name,
+            email = author.email.value,
+            description = author.description.value
         )
     }
 }
