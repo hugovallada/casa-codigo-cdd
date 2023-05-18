@@ -1,13 +1,18 @@
 plugins {
     kotlin("jvm") version "1.8.10"
     kotlin("plugin.allopen") version "1.8.10"
-    kotlin("plugin.noarg") version "1.8.10"
+    kotlin("plugin.noarg") version "1.8.21"
+    id("org.jetbrains.kotlin.plugin.jpa") version "1.8.21"
     id("io.quarkus")
 }
 
 repositories {
     mavenCentral()
     mavenLocal()
+}
+
+noArg {
+    annotation("javax.persistence.Entity")
 }
 
 val quarkusPlatformGroupId: String by project
