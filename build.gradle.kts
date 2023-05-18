@@ -1,6 +1,7 @@
 plugins {
     kotlin("jvm") version "1.8.10"
     kotlin("plugin.allopen") version "1.8.10"
+    kotlin("plugin.noarg") version "1.8.10"
     id("io.quarkus")
 }
 
@@ -18,9 +19,10 @@ dependencies {
     implementation("io.quarkus:quarkus-hibernate-orm-panache-kotlin")
     implementation("io.quarkus:quarkus-kotlin")
     implementation("io.quarkus:quarkus-jdbc-postgresql")
-    implementation("io.quarkus:quarkus-resteasy-reactive-kotlin-serialization")
+    implementation("io.quarkus:quarkus-resteasy-reactive-jackson")
     implementation("org.jetbrains.kotlin:kotlin-stdlib-jdk8")
     implementation("io.quarkus:quarkus-arc")
+    implementation("io.quarkus:quarkus-hibernate-validator")
     testImplementation("io.quarkus:quarkus-junit5")
 }
 
