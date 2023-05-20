@@ -3,6 +3,7 @@ package com.github.hugovallada.casadocodigo.client.model.response
 import com.github.hugovallada.casadocodigo.domain.entity.AuthorDomain
 import java.time.format.DateTimeFormatter
 
+@JvmRecord
 data class AuthorResponse(
     val name: String,
     val email: String,

@@ -9,11 +9,12 @@ import jakarta.ws.rs.Path
 import org.jboss.resteasy.reactive.ResponseStatus
 import org.jboss.resteasy.reactive.RestResponse.StatusCode
 
-@Path("/books")
-class BookResource(private val createBookUseCase: CreateBookUseCase) : CreateBookAPI {
+@Path("/books/create")
+class CreateBookResource(private val createBookUseCase: CreateBookUseCase) : CreateBookAPI {
     @POST
     @ResponseStatus(StatusCode.CREATED)
     override fun execute(@Valid bookRequest: BookRequest) {
         createBookUseCase(bookRequest)
     }
 }
+
