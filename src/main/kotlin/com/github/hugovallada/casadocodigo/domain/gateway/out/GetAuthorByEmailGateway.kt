@@ -4,6 +4,6 @@ import com.github.hugovallada.casadocodigo.domain.entity.AuthorDomain
 import jakarta.inject.Named
 
 @Named
-interface GetAuthorByEmailGateway {
-    fun execute(email: String): AuthorDomain?
+fun interface GetAuthorByEmailGateway : GetEntityByUniqueFieldGateway<AuthorDomain> {
+    override fun execute(field: String): AuthorDomain?
 }
