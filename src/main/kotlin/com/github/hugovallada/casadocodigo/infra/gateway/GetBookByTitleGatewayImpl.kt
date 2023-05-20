@@ -8,5 +8,5 @@ import jakarta.enterprise.context.ApplicationScoped
 
 @ApplicationScoped
 class GetBookByTitleGatewayImpl(private val bookRepository: BookRepository) : GetBookByTitleGateway {
-    override fun execute(title: String): BookDomain? = bookRepository.findByTitle(title)?.toDomain()
+    override fun execute(field: String): BookDomain? = bookRepository.findByTitle(field)?.toDomain()
 }

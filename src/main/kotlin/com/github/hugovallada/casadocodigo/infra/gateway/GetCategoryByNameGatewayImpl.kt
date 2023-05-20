@@ -8,5 +8,5 @@ import jakarta.enterprise.context.ApplicationScoped
 
 @ApplicationScoped
 class GetCategoryByNameGatewayImpl(private val categoryRepository: CategoryRepository) : GetCategoryByNameGateway {
-    override fun execute(name: String): CategoryDomain? = categoryRepository.findByName(name)?.toDomain()
+    override fun execute(field: String): CategoryDomain? = categoryRepository.findByName(field)?.toDomain()
 }

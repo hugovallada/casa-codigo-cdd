@@ -8,6 +8,6 @@ import jakarta.enterprise.context.ApplicationScoped
 
 @ApplicationScoped
 class GetAuthorByEmailGatewayImpl(private val authorRepository: AuthorRepository) : GetAuthorByEmailGateway {
-    override fun execute(email: String): AuthorDomain? =
-        authorRepository.findByEmail(email)?.toAuthorDomain()
+    override fun execute(field: String): AuthorDomain? =
+        authorRepository.findByEmail(field)?.toAuthorDomain()
 }
