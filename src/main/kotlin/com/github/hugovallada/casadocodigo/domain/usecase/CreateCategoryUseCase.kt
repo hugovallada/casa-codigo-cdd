@@ -12,7 +12,7 @@ class CreateCategoryUseCase(
     private val createCategoryGateway: CreateCategoryGateway,
 ) {
     operator fun invoke(category: CategoryDomain) {
-        ValidateIfEntityExistsByUniqueFieldUseCase(getCategoryByNameGateway).run {
+        ValidateThatEntityDoesNotExistsByUniqueFieldUseCase(getCategoryByNameGateway).run {
             execute(category.name to CATEGORY)
         }
         createCategoryGateway.execute(category)

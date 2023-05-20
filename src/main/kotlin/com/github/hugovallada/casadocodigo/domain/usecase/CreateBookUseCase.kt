@@ -14,7 +14,7 @@ class CreateBookUseCase(
     private val createBookGateway: CreateBookGateway
 ) {
     operator fun invoke(bookRequest: BookDTO) {
-        ValidateIfEntityExistsByUniqueFieldUseCase(getBookByTitleGateway).run {
+        ValidateThatEntityDoesNotExistsByUniqueFieldUseCase(getBookByTitleGateway).run {
             execute(bookRequest.title to BOOK)
         }
         val author = getAuthorByEmailUseCase(bookRequest.authorEmail)

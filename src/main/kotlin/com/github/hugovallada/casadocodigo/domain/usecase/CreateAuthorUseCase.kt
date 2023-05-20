@@ -12,7 +12,7 @@ class CreateAuthorUseCase(
     private val createAuthorGateway: CreateAuthorGateway
 ) {
     operator fun invoke(author: AuthorDomain) {
-        ValidateIfEntityExistsByUniqueFieldUseCase(getAuthorByEmailGateway).run {
+        ValidateThatEntityDoesNotExistsByUniqueFieldUseCase(getAuthorByEmailGateway).run {
             execute(author.email.value to AUTHOR)
         }
         createAuthorGateway.execute(author)

@@ -5,7 +5,7 @@ import com.github.hugovallada.casadocodigo.shared.validator.isNull
 
 typealias UniqueFieldAndEntityName = Pair<String, String>
 
-class ValidateIfEntityExistsByUniqueFieldUseCase<T>(
+class ValidateThatEntityDoesNotExistsByUniqueFieldUseCase<T>(
     private val getEntityByUniqueFieldGateway: GetEntityByUniqueFieldGateway<T>
 ) {
     fun execute(data: UniqueFieldAndEntityName) {
